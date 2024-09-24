@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ table_name|capitalize }}</title>
+</head>
+<body>
+    <h1>{{ table_name|capitalize }} Data</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                {% if table_name == 'forecast_sales' %}
+                    <th>ID</th>
+                    <th>Forecast Sales (Next Month)</th>
+                    <th>Forecast Sales (Next Quarter)</th>
+                    <th>Forecast Sales (Next Year)</th>
+                    <th>Forecast Date</th>
+                {% else %}
+                    {% for key in data[0].keys() %}
+                        <th>{{ key|capitalize }}</th>
+                    {% endfor %}
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    {% for value in row.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/">Back to Dashboard</a>
+</body>
+</html>

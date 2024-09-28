@@ -11,12 +11,12 @@
     <table border="1">
         <thead>
             <tr>
-                {% if table_name == 'forecast_sales' %}
-                    <th>ID</th>
+                {% if table_name == 'Sales Forecast' %}
+                    <th>Forecast Month</th>
                     <th>Forecast Sales (Next Month)</th>
-                    <th>Forecast Sales (Next Quarter)</th>
-                    <th>Forecast Sales (Next Year)</th>
-                    <th>Forecast Date</th>
+                {% elif table_name == 'Inventory Forecast' %}
+                    <th>Forecast Month</th>
+                    <th>Predicted Inventory</th>
                 {% else %}
                     {% for key in data[0].keys() %}
                         <th>{{ key|capitalize }}</th>
@@ -35,6 +35,13 @@
         </tbody>
     </table>
 
+    <!-- Display Download Link for Any Table -->
+    <a href="/download/{{ table_name }}">Download {{ table_name|capitalize }} Data as CSV</a>
+
+    <br><br>
     <a href="/">Back to Dashboard</a>
+</body>
+</html>
+
 </body>
 </html>

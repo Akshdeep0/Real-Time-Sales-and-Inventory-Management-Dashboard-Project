@@ -28,3 +28,5 @@ Advanced Notifications: Implementing automated email alerts for critical stock l
 Multi-Store Support: Enhancing the system to manage multiple warehouses and store locations for a more holistic view of stock movement and sales.
 Conclusion:
 The Real-Time Sales and Inventory Management Dashboard is a powerful, scalable solution tailored for businesses looking to leverage data for better operational decisions. By integrating Python for backend processing, PostgreSQL for data storage, and Power BI for visualization, the system provides comprehensive insights into sales trends and stock levels, enabling proactive inventory management.
+
+Thanks for giving us the oppurtunity to build this project as well as help us throughout it and giving us guidance by going out of your way.

@@ -3,6 +3,40 @@ from sqlalchemy import create_engine, text
 from data_cleaning import clean_and_validate_data
 import os
 import data_forecasting
+# this part of our project which is commented out is for sending alerts but we couldn't finish it in the time crunch, we did all the rest improvements and corrections except this
+# import smtplib
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
+
+# # Email configuration - Update with your details
+# SMTP_SERVER = 'smtp.gmail.com'  # For Gmail SMTP server
+# SMTP_PORT = 587  # Standard port for email
+# SENDER_EMAIL = 'project0.manager0@gmail.com'
+# SENDER_PASSWORD = 'prgo azvr ugfo rsch' # write you app password from gmail here
+# RECIPIENT_EMAIL = 'engr.akshdeepsingh@gmail.com'
+
+
+# def send_email_notification(subject, message):
+#     # Create an SMTP session
+#     server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+#     server.starttls()  # Secure the connection
+
+#     # Log in to the email account
+#     server.login(SENDER_EMAIL, SENDER_PASSWORD)
+
+#     # Create the email content
+#     email_msg = MIMEMultipart()
+#     email_msg['From'] = SENDER_EMAIL
+#     email_msg['To'] = RECIPIENT_EMAIL
+#     email_msg['Subject'] = subject
+#     email_msg.attach(MIMEText(message, 'plain'))
+
+#     # Send the email
+#     server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, email_msg.as_string())
+#     print("Email alert sent successfully.")
+
+#     # Close the server connection
+#     server.quit()
 
 # Specify the CSV file paths
 csv_file = '/Users/akshdeep/Documents/Project/supermarket_sales.csv'
@@ -64,6 +98,14 @@ if not sales_df.empty:
         # Step 6: Insert the data into the 'sales' and 'inventory' tables
         insert_sales()
         insert_inventory()
+        # # for Alerts: Send Email Notification
+        # subject = "Data Ingestion Completed"
+        # message = (
+        #     "The data ingestion process has successfully completed. "
+        #     "New sales and inventory data have been ingested into the database.\n\n"
+        #     "You can check the updated data in the PostgreSQL database or on the backend server."
+        # )
+        # send_email_notification(subject, message)
 
     except Exception as e:
         print(f"An error occurred during data ingestion: {e}")
